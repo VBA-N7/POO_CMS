@@ -48,3 +48,12 @@ public:
 protected:
 	void calcul_coef_pen(void);
 };
+
+class AWD : public Berline
+{
+public:
+	AWD(int option_finition);
+protected:
+	void calcul_coef_pen(void);
+};
+

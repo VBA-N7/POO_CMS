@@ -54,3 +54,14 @@ void Break::calcul_coef_pen(void)
 {
 	coef_pen = R * (L1 + L2) / 2 * l * h;
 }
+
+/*DEFINITION AWD*/
+AWD::AWD(int option_finition) : Berline(option_finition)
+{
+	h = 1.3;
+	l = 2.5;
+}
+void AWD::calcul_coef_pen(void)
+{
+	coef_pen = R * L1 * l * h;
+}
