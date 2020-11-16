@@ -22,10 +22,19 @@ protected:
 
 };
 
-class Coupe:public Chassis 
+class Coupe : public Chassis 
 {
 public:
 	Coupe(int option_finition);
+
+protected:
+	void calcul_coef_pen(void);
+};
+
+class Berline : public Chassis
+{
+public:
+	Berline(int option_finition);
 
 protected:
 	void calcul_coef_pen(void);
