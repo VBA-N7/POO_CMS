@@ -43,3 +43,14 @@ void Berline::calcul_coef_pen(void)
 {
 	coef_pen = R * (((L1 - (h / 2) + L2) / 2) * l * h + pow((h / 2), 2));
 }
+
+/*DEFINITION BREAK*/
+Break::Break(int option_finition) : Berline(option_finition)
+{
+	L2 = 3.2;
+}
+
+void Break::calcul_coef_pen(void)
+{
+	coef_pen = R * (L1 + L2) / 2 * l * h;
+}

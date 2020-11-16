@@ -39,3 +39,12 @@ public:
 protected:
 	void calcul_coef_pen(void);
 };
+
+class Break : public Berline
+{
+public:
+	Break(int option_finition);
+
+protected:
+	void calcul_coef_pen(void);
+};
