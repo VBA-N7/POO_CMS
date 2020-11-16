@@ -22,3 +22,11 @@ protected:
 
 };
 
+class Coupe:public Chassis 
+{
+public:
+	Coupe(int option_finition);
+
+protected:
+	void calcul_coef_pen(void);
+};
