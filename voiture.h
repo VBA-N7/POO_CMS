@@ -5,7 +5,7 @@ class Voiture
 {
 public:
 	Voiture();
-	void calcul_vitesse(void);
+	//void calcul_vitesse(void);
 
 	Chassis* CH;
 	//moteur* MT;
