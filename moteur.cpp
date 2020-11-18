@@ -41,7 +41,15 @@ Diesel::Diesel(string boite, float cylindree):Moteur()
 
 void Diesel::calcul_puissance(void)
 {
-    this->puissance = this->K*this->cylindree;
+    if(this->boite=="BMA")
+    {
+        this->puissance = this->K*this->cylindree;
+    }
+    else if(this->boite=="BVA")
+    {
+        this->puissance = 0.9*this->K*this->cylindree;
+        
+    }
 } 
 
 void Diesel::calcul_consommation(void)
@@ -82,11 +90,33 @@ Essence::Essence(string boite, float cylindree):Moteur()
 
 void Essence::calcul_puissance(void)
 {
-    this->puissance = this->K*this->cylindree;
+    if(this->boite=="BMA")
+    {
+        this->puissance = this->K*this->cylindree;
+    }
+    else if(this->boite=="BVA")
+    {
+        this->puissance = 0.9*this->K*this->cylindree; 
+    }
 }
 
 void Essence::calcul_consommation(void)
 {
     this->calcul_puissance();
     this->consommation = this->Q*this->puissance;
+}
+
+Electrique::Electrique()
+{
+    this->boite = "BVA";
+}
+void Electrique::calcul_puissance()
+{
+    this->puissance=95;
+}
+void Electrique::calcul_consommation()
+{
+    this->calcul_puissance();
+    this->consommation=0;
+    cout<<"calcul_consommation not implemented" <<endl;
 }

@@ -18,6 +18,7 @@
 #GREGOIRE
 *.txt
 build/
+Sujet/
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)

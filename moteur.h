@@ -39,3 +39,16 @@ public:
     void calcul_consommation(void);
     void calcul_puissance(void);
 };
+
+class Electrique:public Moteur
+{
+protected:
+    float cylindre = 0;
+    float consommation = 0;
+    string boite;
+    float puissance=95;
+public:
+    Electrique();
+    void calcul_puissance(void);
+    void calcul_consommation(void);
+};
