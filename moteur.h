@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class moteur
+class Moteur
 {
 protected:
     float cylindree;
@@ -18,4 +18,14 @@ public:
     virtual void calcul_consommation(void)=0;
     virtual void calcul_puissance(void)=0;
     float get_puissance(void);
+};
+
+class Diesel:public Moteur
+{
+protected:
+    float K=0.06;
+public:
+    Diesel(string boite, float cylindree);
+    void calcul_consommation(void);
+    void calcul_puissance(void);
 };
