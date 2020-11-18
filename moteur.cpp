@@ -42,11 +42,51 @@ Diesel::Diesel(string boite, float cylindree):Moteur()
 void Diesel::calcul_puissance(void)
 {
     this->puissance = this->K*this->cylindree;
-}
+} 
 
 void Diesel::calcul_consommation(void)
 {
     this->calcul_puissance();
-    this->consommation = Q*puissance/log10(puissance/6);
+    this->consommation = this->Q*this->puissance;
 }
-   
+
+Essence::Essence(string boite, float cylindree):Moteur()
+{
+    //add try and catch to check if arguments are valid in term of type and value
+    try
+    {   
+        if(cylindree==1800 || cylindree==2200)
+        {
+            this->cylindree = cylindree;
+        }
+        else
+        {
+            throw string("valeur de la cylindree invalide");
+        }
+        
+        if (boite=="BMA" || boite=="BVA")
+        {
+            this->boite = boite;
+        }
+        else
+        {
+            throw string("type de boite de vitesse invalide");
+        }
+    }
+    catch(string str)
+    {
+        cout << "erreur : " << str <<endl;
+    }
+    
+}
+
+void Essence::calcul_puissance(void)
+{
+    this->puissance = this->K*this->cylindree;
+}
+
+void Essence::calcul_consommation(void)
+{
+    this->calcul_puissance();
+    this->consommation = this->Q*this->puissance;
+}

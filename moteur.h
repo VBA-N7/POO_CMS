@@ -29,3 +29,13 @@ public:
     void calcul_consommation(void);
     void calcul_puissance(void);
 };
+ 
+class Essence:public Moteur
+{
+protected:
+    float K = 0.06;
+public:
+    Essence(string boite, float cylindree);
+    void calcul_consommation(void);
+    void calcul_puissance(void);
+};
