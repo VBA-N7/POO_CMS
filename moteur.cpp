@@ -6,7 +6,12 @@
 float Moteur::get_puissance(void)
 {
     this->calcul_puissance();
-    return this->puissance;
+    return puissance;
+}
+float Moteur::get_consommation(void)
+{
+    this->calcul_consommation();
+    return consommation;
 }
 
 Diesel::Diesel(string boite, float cylindree):Moteur()
@@ -106,9 +111,10 @@ void Essence::calcul_consommation(void)
     this->consommation = this->Q*this->puissance;
 }
 
-Electrique::Electrique()
+Electrique::Electrique():Moteur()
 {
     this->boite = "BVA";
+    puissance=95;
 }
 void Electrique::calcul_puissance()
 {
@@ -118,5 +124,22 @@ void Electrique::calcul_consommation()
 {
     this->calcul_puissance();
     this->consommation=0;
-    cout<<"calcul_consommation not implemented" <<endl;
 }
+
+Hybride::Hybride():Moteur()
+{
+    essence = new Essence("BVA", 1800);
+    electrique = new Electrique();
+}
+void Hybride::calcul_puissance()
+{
+    this->puissance = essence->get_puissance()+electrique->get_puissance();
+}
+
+void Hybride::calcul_consommation()
+{
+    this->consommation = essence->get_consommation();
+}
+
+
+
