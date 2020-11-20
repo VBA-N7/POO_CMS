@@ -17,12 +17,24 @@ float Chassis::get_coef_pen(void)
 	return coef_pen;
 }
 
+float Chassis::get_prix(void)
+{
+	if (option == 1)
+	{
+		return prix + LUXURY_PRICE;
+	}
+	else
+	{
+		return prix;
+	}
+}
 /*DEFINITION COUPE CLASS*/
 
 Coupe::Coupe(int option_finition) : Chassis(option_finition)
 {
 	nb_portes = 2;
 	h = 1.3;
+	prix += COUPE_PRICE;
 	calcul_coef_pen();
 }
 
@@ -50,6 +62,7 @@ void Berline::calcul_coef_pen(void)
 Break::Break(int option_finition) : Berline(option_finition)
 {
 	L2 = 3.2;
+	prix += BERLINE_BREAK_PRICE;
 	calcul_coef_pen();
 }
 
@@ -63,6 +76,7 @@ AWD::AWD(int option_finition) : Berline(option_finition)
 {
 	h = 1.3;
 	l = 2.5;
+	prix += BERLINE_AWD_PRICE;
 	calcul_coef_pen();
 }
 void AWD::calcul_coef_pen(void)
