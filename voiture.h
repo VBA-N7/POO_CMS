@@ -9,6 +9,8 @@ public:
 
 	Chassis* CH;
 	//moteur* MT;
+	//Chassis* CH;
+	Moteur* MT;
 protected:
 	float vitesse_max;
 };
