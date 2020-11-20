@@ -23,6 +23,7 @@ Coupe::Coupe(int option_finition) : Chassis(option_finition)
 {
 	nb_portes = 2;
 	h = 1.3;
+	calcul_coef_pen();
 }
 
 void Coupe::calcul_coef_pen(void)
@@ -37,6 +38,7 @@ Berline::Berline(int option_finition) : Chassis(option_finition)
 	nb_portes = 4;
 	L2 = 2;
 	h = 1.3;
+	calcul_coef_pen();
 }
 
 void Berline::calcul_coef_pen(void)
@@ -48,6 +50,7 @@ void Berline::calcul_coef_pen(void)
 Break::Break(int option_finition) : Berline(option_finition)
 {
 	L2 = 3.2;
+	calcul_coef_pen();
 }
 
 void Break::calcul_coef_pen(void)
@@ -60,6 +63,7 @@ AWD::AWD(int option_finition) : Berline(option_finition)
 {
 	h = 1.3;
 	l = 2.5;
+	calcul_coef_pen();
 }
 void AWD::calcul_coef_pen(void)
 {
