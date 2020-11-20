@@ -5,9 +5,9 @@ class Voiture
 {
 public:
 	Voiture();
-	void calcul_vitesse(void);
+	//void calcul_vitesse(void);
 
-	//chassis* CH;
+	Chassis* CH;
 	//moteur* MT;
 protected:
 	float vitesse_max;
