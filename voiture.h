@@ -7,8 +7,8 @@ public:
 	Voiture();
 	void calcul_vitesse(void);
 
-	//chassis* CH;
-	//moteur* MT;
+	//Chassis* CH;
+	Moteur* MT;
 protected:
 	float vitesse_max;
 };

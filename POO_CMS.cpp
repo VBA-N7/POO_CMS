@@ -43,6 +43,7 @@ int main()
     Essence Essence4("BVE",(float)2200);
     cout<< Essence4.get_puissance() <<endl;
   
+    
     //TEST ELECTRIQUE DYNAMIC INSTANCE CREATION
     cout<< "TEST ELECTRIQUE DYNAMIC INSTANCE CREATION" <<endl;
     Moteur* Electrique1;
@@ -50,12 +51,19 @@ int main()
     cout<< Electrique1->get_puissance() <<endl;    
     //TEST ELECTRIQUE STATIC INSTANCE CREATION
     cout<< "TEST ELECTRIQUE CYLINDREE ERROR" <<endl;
-    //Electrique Electrique2();
-    //cout<< Electrique2.get_puissance() <<endl;
+    Electrique Electrique2;
+    cout<< Electrique2.get_puissance() <<endl;
 
-    //log :
-    //error static instance creation not working
-    //error get_puissance not working
 
+    //TEST HYBRIDE DYNAMIC INSTANCE CREATION
+    cout<< "TEST HYBRIDE DYNAMIC INSTANCE CREATION" <<endl;
+    Moteur* Hybride1;
+    Hybride1 = new Hybride();
+    cout<< Hybride1->get_puissance() <<endl;    
+    //TEST HYBRIDE STATIC INSTANCE CREATION
+    cout<< "TEST HYBRIDE CYLINDREE ERROR" <<endl;
+    Hybride Hybride2;
+    cout<< Hybride2.get_puissance() <<endl;
+    
 
 }
