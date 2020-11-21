@@ -1,3 +1,8 @@
+#define COUPE_PRICE 2000
+#define BERLINE_BREAK_PRICE 1000
+#define BERLINE_AWD_PRICE 3000
+#define	LUXURY_PRICE 1500
+
 class Chassis
 {
 public:
@@ -5,6 +10,7 @@ public:
 
 	int		get_nb_portes(void);
 	float	get_coef_pen(void);
+	float	get_prix(void);
 	virtual void calcul_coef_pen(void) = 0;
 
 private:
@@ -19,6 +25,8 @@ protected:
 	float L2;
 	float h;
 	float l = 2.2;
+
+	float prix = 0;
 
 };
 

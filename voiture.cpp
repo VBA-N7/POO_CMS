@@ -3,6 +3,11 @@
 Voiture::Voiture()
 {
 }
+float Voiture::get_prix(void)
+{
+	// return 15k€ - (surcout chassis + surcout moteur)
+	return prix - (CH->get_prix() /*+ MT->get_prix()*/);
+}
 
 /*void Voiture::calcul_vitesse(void)
 {
