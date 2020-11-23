@@ -2,6 +2,7 @@
 #include <exception>
 #include "moteur.h"
 
+//MOTEUR
 
 float Moteur::get_puissance(void)
 {
@@ -13,6 +14,8 @@ float Moteur::get_consommation(void)
     this->calcul_consommation();
     return consommation;
 }
+
+//DIESEL
 
 Diesel::Diesel(string boite, float cylindree):Moteur()
 {
@@ -41,7 +44,10 @@ Diesel::Diesel(string boite, float cylindree):Moteur()
     {
         cout << "erreur : " << str <<endl;
     }
-    
+
+    //INIT METHODS
+    this->calcul_puissance();
+    this->calcul_consommation();
 }
 
 void Diesel::calcul_puissance(void)
@@ -59,13 +65,14 @@ void Diesel::calcul_puissance(void)
 
 void Diesel::calcul_consommation(void)
 {
-    this->calcul_puissance();
     this->consommation = this->Q*this->puissance;
 }
 
+//ESSENCE
+
 Essence::Essence(string boite, float cylindree):Moteur()
 {
-    //add try and catch to check if arguments are valid in term of type and value
+    //INIT ATTRIBUTS
     try
     {   
         if(cylindree==1800 || cylindree==2200)
@@ -90,7 +97,10 @@ Essence::Essence(string boite, float cylindree):Moteur()
     {
         cout << "erreur : " << str <<endl;
     }
-    
+
+    //INIT METHODS
+    this->calcul_puissance();
+    this->calcul_consommation();
 }
 
 void Essence::calcul_puissance(void)
@@ -107,14 +117,19 @@ void Essence::calcul_puissance(void)
 
 void Essence::calcul_consommation(void)
 {
-    this->calcul_puissance();
     this->consommation = this->Q*this->puissance;
 }
 
+//ELECTRIQUE
+
 Electrique::Electrique():Moteur()
 {
+    //INIT ATTRIBUTS
     this->boite = "BVA";
     puissance=95;
+    //INIT METHODS
+    this->calcul_puissance();
+    this->calcul_consommation();
 }
 void Electrique::calcul_puissance()
 {
@@ -122,14 +137,19 @@ void Electrique::calcul_puissance()
 }
 void Electrique::calcul_consommation()
 {
-    this->calcul_puissance();
     this->consommation=0;
 }
 
+//HYBRIDE
+
 Hybride::Hybride():Moteur()
 {
+    //INIT ATTRIBUTS
     essence = new Essence("BVA", 1800);
     electrique = new Electrique();
+    //INIT METHODS
+    this->calcul_puissance();
+    this->calcul_consommation();
 }
 void Hybride::calcul_puissance()
 {
