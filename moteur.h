@@ -3,6 +3,13 @@
 
 using namespace std;
 
+#define PRICE_DIESEL 2000
+#define PRICE_ESSENCE 0
+#define PRICE_ELECTRIQUE 3000
+#define PRICE_HYBRIDE 3000
+#define PRICE_CYLINDREE 1000
+#define PRICE_BVA 500
+
 class Moteur
 {
 protected:
@@ -11,46 +18,46 @@ protected:
     float puissance;
     float consommation;
 
-float K;
-float Q=0.055;
+    float K;
+    float Q;
+
+    float prix;
 
 public:
-    virtual void calcul_consommation(void)=0;
-    virtual void calcul_puissance(void)=0;
-    float get_puissance(void);
-    float get_consommation(void);
+    Moteur();
+    virtual void calcul_consommation()=0;
+    virtual void calcul_puissance()=0;
+    virtual void calcul_prix()=0;
+    float get_puissance();
+    float get_consommation();
+    float get_prix();
 };
 
 class Diesel:public Moteur
 {
-protected:
-    float K=0.06;
 public:
     Diesel(string boite, float cylindree);
-    void calcul_consommation(void);
-    void calcul_puissance(void);
+    void calcul_consommation();
+    void calcul_puissance();
+    void calcul_prix();
 };
  
 class Essence:public Moteur
 {
-protected:
-    float K = 0.06;
 public:
     Essence(string boite, float cylindree);
-    void calcul_consommation(void);
-    void calcul_puissance(void);
+    void calcul_consommation();
+    void calcul_puissance();
+    void calcul_prix();
 };
 
 class Electrique:public Moteur
 {
-protected:
-    //float cylindre = 0;
-    //float consommation = 0;
-    //float puissance=95;
 public:
     Electrique();
-    void calcul_puissance(void);
-    void calcul_consommation(void);
+    void calcul_puissance();
+    void calcul_consommation();
+    void calcul_prix();
 };
 
 class Hybride:public Moteur
@@ -61,8 +68,9 @@ protected:
 
 public:
     Hybride();
-    void calcul_puissance(void);
-    void calcul_consommation(void);
+    void calcul_puissance();
+    void calcul_consommation();
+    void calcul_prix();
 private:
   
 };
