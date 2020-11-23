@@ -22,6 +22,7 @@ protected:
     float Q;
 
     float prix;
+    string name;
 
 public:
     Moteur();
@@ -31,6 +32,9 @@ public:
     float get_puissance();
     float get_consommation();
     float get_prix();
+    float get_cylindre();
+    string get_name();
+    string get_boite();
 };
 
 class Diesel:public Moteur
@@ -62,15 +66,13 @@ public:
 
 class Hybride:public Moteur
 {
-protected:
-    Essence* essence;
-    Electrique* electrique;
-
 public:
     Hybride();
     void calcul_puissance();
     void calcul_consommation();
     void calcul_prix();
-private:
-  
+   
+protected:
+    Essence* essence;
+    Electrique* electrique; 
 };
