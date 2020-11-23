@@ -3,23 +3,31 @@
 #include "moteur.h"
 
 //MOTEUR
+Moteur::Moteur()
+{
+    Q=0.055;
+    prix = 0;
+}
 
 float Moteur::get_puissance(void)
 {
-    this->calcul_puissance();
     return puissance;
 }
 float Moteur::get_consommation(void)
 {
-    this->calcul_consommation();
     return consommation;
 }
+float Moteur::get_prix(void)
+{
+    return prix;
+}
+
 
 //DIESEL
-
 Diesel::Diesel(string boite, float cylindree):Moteur()
-{
-    //add try and catch to check if arguments are valid in term of type and value
+{   
+    //INIT ATTRIBUTS
+    K=0.06;
     try
     {   
         if(cylindree==1800 || cylindree==2200)
@@ -48,6 +56,7 @@ Diesel::Diesel(string boite, float cylindree):Moteur()
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
+    this->calcul_prix();
 }
 
 void Diesel::calcul_puissance(void)
@@ -68,11 +77,24 @@ void Diesel::calcul_consommation(void)
     this->consommation = this->Q*this->puissance;
 }
 
-//ESSENCE
+void Diesel::calcul_prix(void)
+{
+    prix += PRICE_DIESEL;
+    if(boite=="BVA")
+    {
+        prix += PRICE_BVA;
+    }
+    if(cylindree==2200)
+    {
+        prix += PRICE_CYLINDREE;
+    }
+}
 
+//ESSENCE
 Essence::Essence(string boite, float cylindree):Moteur()
 {
     //INIT ATTRIBUTS
+    float K = 0.07;
     try
     {   
         if(cylindree==1800 || cylindree==2200)
@@ -101,6 +123,7 @@ Essence::Essence(string boite, float cylindree):Moteur()
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
+    this->calcul_prix();
 }
 
 void Essence::calcul_puissance(void)
@@ -120,8 +143,20 @@ void Essence::calcul_consommation(void)
     this->consommation = this->Q*this->puissance;
 }
 
-//ELECTRIQUE
+void Essence::calcul_prix(void)
+{
+    prix += PRICE_ESSENCE;
+    if(boite=="BVA")
+    {
+        prix += PRICE_BVA;
+    }
+    if(cylindree==2200)
+    {
+        prix += PRICE_CYLINDREE;
+    }
+}
 
+//ELECTRIQUE
 Electrique::Electrique():Moteur()
 {
     //INIT ATTRIBUTS
@@ -130,6 +165,7 @@ Electrique::Electrique():Moteur()
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
+    this->calcul_prix();
 }
 void Electrique::calcul_puissance()
 {
@@ -139,9 +175,20 @@ void Electrique::calcul_consommation()
 {
     this->consommation=0;
 }
+void Electrique::calcul_prix(void)
+{   
+    prix += PRICE_ELECTRIQUE;
+    if(boite=="BVA")
+    {
+        prix += PRICE_BVA;
+    }
+    if(cylindree==2200)
+    {
+        prix += PRICE_CYLINDREE;
+    }
+}
 
 //HYBRIDE
-
 Hybride::Hybride():Moteur()
 {
     //INIT ATTRIBUTS
@@ -150,6 +197,7 @@ Hybride::Hybride():Moteur()
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
+    this->calcul_prix();
 }
 void Hybride::calcul_puissance()
 {
@@ -160,6 +208,7 @@ void Hybride::calcul_consommation()
 {
     this->consommation = essence->get_consommation();
 }
-
-
-
+void Hybride::calcul_prix(void)
+{
+    prix += essence->get_prix() + electrique->get_prix()-PRICE_BVA; //price_bva is counted 2 times in electrique and essence so: -PRICE_BVA
+}
