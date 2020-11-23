@@ -1,7 +1,6 @@
 #include <iostream>
-#include "chassis.h"
 #include <string>
-#include "moteur.h"
+#include "voiture.h"
 
 using namespace std;
 
@@ -118,9 +117,35 @@ void unit_tests_moteur(void)
         cout<<"    "<<Hybride2.get_puissance() <<endl;
         cout<<"    "<<Hybride2.get_prix() <<endl;   
 }
+
+void unit_tests_voiture(void)
+{
+    Voiture* ma_voiture;
+    Chassis* choix_chassis; 
+    Moteur* choix_moteur;
+    
+    /*CREATION VOITURE LA MOINS CHERE*/
+    choix_chassis = new Berline(0);
+    choix_moteur = new Essence("BMA", float(1800));
+    ma_voiture = new Voiture(choix_moteur, choix_chassis);
+    cout << "Berline Essence 1800 en BMA" << endl;
+    cout << "Prix de ma voiture: " << ma_voiture->get_prix() << " euros" << endl;
+    cout << "Vitesse max de ma voiture: " << ma_voiture->get_vitesse_max() << " km/h" << endl;
+
+    /*CREATION VOITURE LA PLUS CHERE*/
+    choix_chassis = new AWD(1);
+    choix_moteur = new Hybride();
+    ma_voiture = new Voiture(choix_moteur, choix_chassis);
+    cout << "\nBerline Essence 1800 en BMA" << endl;
+    cout << "Prix de ma voiture: " << ma_voiture->get_prix() << " euros" << endl;
+    cout << "Vitesse max de ma voiture: " << ma_voiture->get_vitesse_max() << " km/h"<< endl;
+ }
+
 int main()
 {
     unit_tests_chassis();
     cout<<""<<endl;
     unit_tests_moteur();
+    cout << "" << endl;
+    unit_tests_voiture();
 }

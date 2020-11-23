@@ -94,7 +94,7 @@ void Diesel::calcul_prix(void)
 Essence::Essence(string boite, float cylindree):Moteur()
 {
     //INIT ATTRIBUTS
-    float K = 0.07;
+    K = 0.07;
     try
     {   
         if(cylindree==1800 || cylindree==2200)
