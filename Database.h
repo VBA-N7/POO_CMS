@@ -8,5 +8,5 @@ public:
     Database(Voiture*);
     void stocker(Voiture*);
     void lister();
-    //Voiture filtrer(string); doit retourner une liste
+    Database* filtrer(string);
 };

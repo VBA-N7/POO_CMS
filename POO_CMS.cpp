@@ -149,7 +149,9 @@ void unit_tests_configurateur(void)
     mon_configurateur.afficher(mon_configurateur.configurer());
 }
 void unit_tests_database(void)
-{
+{   
+    //TEST DATABASE
+    cout<<"    "<<"TEST DATABASE" <<endl;
     Diesel moteur0("BVA",float(1800));
     Diesel moteur1("BVA",float(2200));
     Diesel moteur2("BMA",float(1800));
@@ -180,6 +182,14 @@ void unit_tests_database(void)
     Voiture voiture5(&moteur5,&chassis0);
     Voiture voiture6(&moteur6,&chassis0);
     Voiture voiture7(&moteur7,&chassis0);
+    Voiture voiture8(&moteur0,&chassis1);
+    Voiture voiture9(&moteur1,&chassis1);
+    Voiture voiture10(&moteur2,&chassis1);
+    Voiture voiture11(&moteur3,&chassis1);
+    Voiture voiture12(&moteur4,&chassis1);
+    Voiture voiture13(&moteur5,&chassis1);
+    Voiture voiture14(&moteur6,&chassis1);
+    Voiture voiture15(&moteur7,&chassis1);
     
     Database database(&voiture0);
     database.stocker(&voiture1);
@@ -189,7 +199,82 @@ void unit_tests_database(void)
     database.stocker(&voiture5);
     database.stocker(&voiture6);
     database.stocker(&voiture7);
+    database.stocker(&voiture8);
+    database.stocker(&voiture9);
+    database.stocker(&voiture10);
+    database.stocker(&voiture11);
+    database.stocker(&voiture12);
+    database.stocker(&voiture13);
+    database.stocker(&voiture14);
+    database.stocker(&voiture15);
     database.lister();
+}
+
+void unit_tests_database_filter(void)
+{
+    //TEST DATABASE_FILTRE
+    cout<<"    "<<"TEST DATABASE_FILTRE" <<endl;
+    Diesel moteur0("BVA",float(1800));
+    Diesel moteur1("BVA",float(2200));
+    Diesel moteur2("BMA",float(1800));
+    Diesel moteur3("BMA",float(2200));
+
+    Essence moteur4("BVA",float(1800));
+    Essence moteur5("BVA",float(2200));
+    Essence moteur6("BMA",float(1800));
+    Essence moteur7("BMA",float(2200));
+
+    Hybride moteur8();
+    Electrique moteur9();
+
+    Coupe chassis0(1);
+    Coupe chassis1(0);
+    Berline chassis2(1);
+    Berline chassis3(0);
+    Break chassis4(1);
+    Break chassis5(0);
+    AWD chassis6(1);
+    AWD chassis7(0);
+
+    Voiture voiture0(&moteur0,&chassis0);
+    Voiture voiture1(&moteur1,&chassis0);
+    Voiture voiture2(&moteur2,&chassis0);
+    Voiture voiture3(&moteur3,&chassis0);
+    Voiture voiture4(&moteur4,&chassis0);
+    Voiture voiture5(&moteur5,&chassis0);
+    Voiture voiture6(&moteur6,&chassis0);
+    Voiture voiture7(&moteur7,&chassis0);
+    Voiture voiture8(&moteur0,&chassis1);
+    Voiture voiture9(&moteur1,&chassis1);
+    Voiture voiture10(&moteur2,&chassis1);
+    Voiture voiture11(&moteur3,&chassis1);
+    Voiture voiture12(&moteur4,&chassis1);
+    Voiture voiture13(&moteur5,&chassis1);
+    Voiture voiture14(&moteur6,&chassis1);
+    Voiture voiture15(&moteur7,&chassis1);
+    
+    Database database(&voiture0);
+    database.stocker(&voiture1);
+    database.stocker(&voiture2);
+    database.stocker(&voiture3);
+    database.stocker(&voiture4);
+    database.stocker(&voiture5);
+    database.stocker(&voiture6);
+    database.stocker(&voiture7);
+    database.stocker(&voiture8);
+    database.stocker(&voiture9);
+    database.stocker(&voiture10);
+    database.stocker(&voiture11);
+    database.stocker(&voiture12);
+    database.stocker(&voiture13);
+    database.stocker(&voiture14);
+    database.stocker(&voiture15);
+    database.lister();
+
+    cout<<" "<<endl;
+    Database* database2 = NULL;
+    database2=database.filtrer("Diesel");
+    database2->lister();
 }
 
 int main()
@@ -203,4 +288,7 @@ int main()
     unit_tests_configurateur();
     cout << "" << endl;
     unit_tests_database();
+    cout << "" << endl;
+    unit_tests_database_filter();
+
 }
