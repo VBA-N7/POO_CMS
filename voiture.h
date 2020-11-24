@@ -1,3 +1,5 @@
+#ifndef VOITURE_H
+#define VOITURE_H
 #include "chassis.h"
 #include "moteur.h"
 
@@ -18,3 +20,5 @@ public:
 protected:
 	float vitesse_max;
 };
+
+#endif
