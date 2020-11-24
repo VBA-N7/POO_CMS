@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "voiture.h"
+#include "configurator_system.h"
 
 using namespace std;
 
@@ -141,6 +141,12 @@ void unit_tests_voiture(void)
     cout << "Vitesse max de ma voiture: " << ma_voiture->get_vitesse_max() << " km/h"<< endl;
  }
 
+void unit_tests_configurateur(void)
+{
+    Configurator mon_configurateur;
+    mon_configurateur.afficher(mon_configurateur.configurer());
+}
+
 int main()
 {
     unit_tests_chassis();
@@ -148,4 +154,6 @@ int main()
     unit_tests_moteur();
     cout << "" << endl;
     unit_tests_voiture();
+    cout << "" << endl;
+    unit_tests_configurateur();
 }

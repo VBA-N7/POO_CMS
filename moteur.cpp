@@ -21,6 +21,18 @@ float Moteur::get_prix(void)
 {
     return prix;
 }
+float Moteur::get_cylindre(void)
+{
+    return cylindree;
+}
+string Moteur::get_name()
+{
+    return name;
+}
+string Moteur::get_boite(void)
+{
+    return boite;
+}
 
 
 //DIESEL
@@ -53,6 +65,7 @@ Diesel::Diesel(string boite, float cylindree):Moteur()
         cout << "erreur : " << str <<endl;
     }
 
+    name = "Diesel";
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
@@ -120,6 +133,7 @@ Essence::Essence(string boite, float cylindree):Moteur()
         cout << "erreur : " << str <<endl;
     }
 
+    name = "Essenece";
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
@@ -161,7 +175,9 @@ Electrique::Electrique():Moteur()
 {
     //INIT ATTRIBUTS
     this->boite = "BVA";
+    cylindree = 0;
     puissance=95;
+    name = "Electrique";
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
@@ -194,6 +210,7 @@ Hybride::Hybride():Moteur()
     //INIT ATTRIBUTS
     essence = new Essence("BVA", 1800);
     electrique = new Electrique();
+    name = "Hybride";
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
