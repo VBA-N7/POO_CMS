@@ -22,20 +22,13 @@ void Database::lister()
     while (i != NULL)
 	{
 	voiture = i->recuperer_element();
-    /*
+    
 	cout << voiture->CH->get_name()<< " " << voiture->CH->get_nb_portes() << "P ";
 	cout << voiture->CH->get_finition() << " C" << voiture->MT->get_cylindre();
 	cout << " " << voiture->MT->get_boite() << " " << voiture->MT->get_name();
 	cout << " " << voiture->MT->get_puissance() << " CV ";
-	cout << voiture->get_vitesse_max() << " km/h\t" << voiture->get_prix() << " $";
-    */
-
-
-	cout << "Element = " << typeid(voiture).name() << endl ;
-    cout << "Element = " << typeid(voiture->CH).name() << endl ;
-    cout << "Element = " << typeid(voiture->MT).name() << endl ;
+	cout << voiture->get_vitesse_max() << " km/h\t" << voiture->get_prix() << " $" <<endl;
 	i = i->recupere_pointeur_suivant();
-
 	}
 }
     

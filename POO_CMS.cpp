@@ -148,17 +148,8 @@ void unit_tests_configurateur(void)
     Configurator mon_configurateur;
     mon_configurateur.afficher(mon_configurateur.configurer());
 }
-
-int main()
+void unit_tests_database(void)
 {
-    unit_tests_chassis();
-    cout<<""<<endl;
-    unit_tests_moteur();
-    cout << "" << endl;
-    unit_tests_voiture();
-    cout << "" << endl;
-    unit_tests_configurateur();
-
     Diesel moteur0("BVA",float(1800));
     Diesel moteur1("BVA",float(2200));
     Diesel moteur2("BMA",float(1800));
@@ -181,7 +172,6 @@ int main()
     AWD chassis6(1);
     AWD chassis7(0);
 
-
     Voiture voiture0(&moteur0,&chassis0);
     Voiture voiture1(&moteur1,&chassis0);
     Voiture voiture2(&moteur2,&chassis0);
@@ -190,8 +180,6 @@ int main()
     Voiture voiture5(&moteur5,&chassis0);
     Voiture voiture6(&moteur6,&chassis0);
     Voiture voiture7(&moteur7,&chassis0);
-
-    //not working
     
     Database database(&voiture0);
     database.stocker(&voiture1);
@@ -202,5 +190,17 @@ int main()
     database.stocker(&voiture6);
     database.stocker(&voiture7);
     database.lister();
-    
+}
+
+int main()
+{
+    unit_tests_chassis();
+    cout<<""<<endl;
+    unit_tests_moteur();
+    cout << "" << endl;
+    unit_tests_voiture();
+    cout << "" << endl;
+    unit_tests_configurateur();
+    cout << "" << endl;
+    unit_tests_database();
 }
