@@ -133,7 +133,7 @@ Essence::Essence(string boite, float cylindree):Moteur()
         cout << "erreur : " << str <<endl;
     }
 
-    name = "Essenece";
+    name = "Essence";
     //INIT METHODS
     this->calcul_puissance();
     this->calcul_consommation();
