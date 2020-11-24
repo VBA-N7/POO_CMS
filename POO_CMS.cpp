@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "voiture.h"
+#include "liste.h"
+#include "Database.h"
 
 using namespace std;
 
@@ -148,4 +150,49 @@ int main()
     unit_tests_moteur();
     cout << "" << endl;
     unit_tests_voiture();
+
+    Diesel moteur0("BVA",float(1800));
+    Diesel moteur1("BVA",float(2200));
+    Diesel moteur2("BMA",float(1800));
+    Diesel moteur3("BMA",float(2200));
+
+    Essence moteur4("BVA",float(1800));
+    Essence moteur5("BVA",float(2200));
+    Essence moteur6("BMA",float(1800));
+    Essence moteur7("BMA",float(2200));
+
+    Hybride moteur8();
+    Electrique moteur9();
+
+    Coupe chassis0(1);
+    Coupe chassis1(0);
+    Berline chassis2(1);
+    Berline chassis3(0);
+    Break chassis4(1);
+    Break chassis5(0);
+    AWD chassis6(1);
+    AWD chassis7(0);
+
+
+    Voiture voiture0(&moteur0,&chassis0);
+    Voiture voiture1(&moteur1,&chassis0);
+    Voiture voiture2(&moteur2,&chassis0);
+    Voiture voiture3(&moteur3,&chassis0);
+    Voiture voiture4(&moteur4,&chassis0);
+    Voiture voiture5(&moteur5,&chassis0);
+    Voiture voiture6(&moteur6,&chassis0);
+    Voiture voiture7(&moteur7,&chassis0);
+
+    //not working
+    
+    Database database(&voiture0);
+    database.stocker(&voiture1);
+    database.stocker(&voiture2);
+    database.stocker(&voiture3);
+    database.stocker(&voiture4);
+    database.stocker(&voiture5);
+    database.stocker(&voiture6);
+    database.stocker(&voiture7);
+    database.lister();
+    
 }
