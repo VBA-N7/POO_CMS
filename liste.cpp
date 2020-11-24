@@ -9,17 +9,17 @@ using namespace std;
 /*								Constructeur de noeud								*/
 /*==================================================================================*/
 /* Construit un element noeud avec gestion des pointeurs pour chainage avec avec	*/
-/* un noeud précédent.
+/* un noeud prï¿½cï¿½dent.
 /*==================================================================================*/
 /*======================================================================================*/
-/* Si présence d'un noeud précédent non NULL , le pointeur SUIVANT du nouveau noeud     */
-/* pointe sur le même élément que le pointeur SUIVANT du noeud précédent. Le pointeur   */
-/* SUIVANT du noeud précédent pointe alors sur le nouveau noeud							*/
+/* Si prï¿½sence d'un noeud prï¿½cï¿½dent non NULL , le pointeur SUIVANT du nouveau noeud     */
+/* pointe sur le mï¿½me ï¿½lï¿½ment que le pointeur SUIVANT du noeud prï¿½cï¿½dent. Le pointeur   */
+/* SUIVANT du noeud prï¿½cï¿½dent pointe alors sur le nouveau noeud							*/
 /*======================================================================================*/
 /*
 /*	   e0	
 /*	 ---- 
-/*	 |  |   SUIVANT = NULL		Premier élément de la liste
+/*	 |  |   SUIVANT = NULL		Premier ï¿½lï¿½ment de la liste
 /*	 ----  
 /*	 |      ^ 
 /*	 |______| 
@@ -28,7 +28,7 @@ using namespace std;
 /*
 /*   e0	   e1   
 /*  ----  ----  
-/*  |  |  |  |  SUIVANT = NULL		Nouvelle élement dans la liste 
+/*  |  |  |  |  SUIVANT = NULL		Nouvelle ï¿½lement dans la liste 
 /*  ----  ----  
 /*  |     ^ |   ^
 /*  |_____| |___|
@@ -38,7 +38,7 @@ using namespace std;
 /*
 /*	  e0   e1     e2 
 /*	----  ----  ----
-/*	|  |  |  |	|  |  SUIVANT = NULL		Nouvelle élement dans la liste 
+/*	|  |  |  |	|  |  SUIVANT = NULL		Nouvelle ï¿½lement dans la liste 
 /*	----  ----  ----
 /*	|     ^ |   ^  |   ^
 /*	|_____| |___|  |___|
@@ -51,7 +51,7 @@ noeud_liste::noeud_liste ( element contenu_nouvel_element , noeud_liste *precede
 {
 
 
-	/* Enregistrement du nouvelle element à stocker dans le noeud */
+	/* Enregistrement du nouvelle element ï¿½ stocker dans le noeud */
 
 	contenu_noeud = contenu_nouvel_element ;
 
@@ -71,14 +71,14 @@ noeud_liste::noeud_liste ( element contenu_nouvel_element , noeud_liste *precede
 
 
 //===================================================================================*/
-//								Insertion élément									 */
+//								Insertion ï¿½lï¿½ment									 */
 //===================================================================================*/
-// Lors de l'insertion d'un élément, un nouveau noeud est créé a la suite du dernier */
-/* noeud. Si première insertion (on se trouve à la racine), le noeud est directement */
-/* créé. Le mot clef THIS représente un pointeur sur l'objet.Sinon, on parcours la   */
-/* liste jusqu'au dernier élément inséré et on appelle le constructeur du nouveau    */
-/* noeud avec pour paramètre l'élément à insérer et un pointeur sur le dernier noeud */
-/* inséré avant la création du nouveau noeud										 */
+// Lors de l'insertion d'un ï¿½lï¿½ment, un nouveau noeud est crï¿½ï¿½ a la suite du dernier */
+/* noeud. Si premiï¿½re insertion (on se trouve ï¿½ la racine), le noeud est directement */
+/* crï¿½ï¿½. Le mot clef THIS reprï¿½sente un pointeur sur l'objet.Sinon, on parcours la   */
+/* liste jusqu'au dernier ï¿½lï¿½ment insï¿½rï¿½ et on appelle le constructeur du nouveau    */
+/* noeud avec pour paramï¿½tre l'ï¿½lï¿½ment ï¿½ insï¿½rer et un pointeur sur le dernier noeud */
+/* insï¿½rï¿½ avant la crï¿½ation du nouveau noeud										 */
 /*===================================================================================*/
 
 void noeud_liste::inserer_element( element e )
@@ -87,7 +87,7 @@ void noeud_liste::inserer_element( element e )
 
 	
 	/*========================================================*/
-	/* Si première insertion d'un élément , creation du noeud */
+	/* Si premiï¿½re insertion d'un ï¿½lï¿½ment , creation du noeud */
 	/*========================================================*/
 
 
@@ -96,7 +96,7 @@ void noeud_liste::inserer_element( element e )
 		noeud_liste *nouveau = new noeud_liste(e,this );
 	
 	/*========================================================*/
-	/* Sinon , recuperation du dernier élément inséré		  */
+	/* Sinon , recuperation du dernier ï¿½lï¿½ment insï¿½rï¿½		  */
 	/*========================================================*/
 
 	else 		
@@ -104,7 +104,7 @@ void noeud_liste::inserer_element( element e )
 		{
 
 			noeud_liste *noeud =  noeud_suivant ;
-			noeud_liste *noeud_precedent ;
+			noeud_liste *noeud_precedent = NULL;
 		
 
 		while ( noeud != NULL ) 
@@ -115,7 +115,7 @@ void noeud_liste::inserer_element( element e )
 		}
 
 		/*================================================================*/	
-		/* Creation du nouveau noeud a la suite du dernier élément inséré */
+		/* Creation du nouveau noeud a la suite du dernier ï¿½lï¿½ment insï¿½rï¿½ */
 		/*================================================================*/	
 
 		noeud_liste *nouveau = new noeud_liste(e,noeud_precedent );
