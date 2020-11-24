@@ -104,7 +104,7 @@ void noeud_liste::inserer_element( element e )
 		{
 
 			noeud_liste *noeud =  noeud_suivant ;
-			noeud_liste *noeud_precedent ;
+			noeud_liste *noeud_precedent = NULL;
 		
 
 		while ( noeud != NULL ) 

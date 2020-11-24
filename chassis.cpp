@@ -68,7 +68,7 @@ Berline::Berline(int option_finition) : Chassis(option_finition)
 {
 	nb_portes = 4;
 	L2 = 2;
-	h = 1.3;
+	h = 1.4;
 	name = "Berline";
 	calcul_coef_pen();
 }

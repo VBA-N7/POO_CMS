@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClCompile Include="chassis.cpp" />
     <ClCompile Include="configurator_system.cpp" />
+    <ClCompile Include="Database.cpp" />
+    <ClCompile Include="liste.cpp" />
     <ClCompile Include="moteur.cpp" />
     <ClCompile Include="POO_CMS.cpp" />
     <ClCompile Include="voiture.cpp" />
@@ -148,6 +150,8 @@
   <ItemGroup>
     <ClInclude Include="chassis.h" />
     <ClInclude Include="configurator_system.h" />
+    <ClInclude Include="Database.h" />
+    <ClInclude Include="liste.h" />
     <ClInclude Include="moteur.h" />
     <ClInclude Include="voiture.h" />
   </ItemGroup>
