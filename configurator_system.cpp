@@ -155,5 +155,5 @@ void Configurator::afficher(Voiture* ma_voiture)
 	cout << ma_voiture->CH->get_finition() << " C" << ma_voiture->MT->get_cylindre();
 	cout << " " << ma_voiture->MT->get_boite() << " " << ma_voiture->MT->get_name();
 	cout << " " << ma_voiture->MT->get_puissance() << " CV ";
-	cout << ma_voiture->get_vitesse_max() << " km/h\t" << ma_voiture->get_prix() << " $";
+	cout << ma_voiture->get_vitesse_max() << " km/h\t" << ma_voiture->get_prix() << " $" << endl;
 }
